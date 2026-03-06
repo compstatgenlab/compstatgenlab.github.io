@@ -1,0 +1,167 @@
+---
+import Page from '../layouts/Page.astro';
+
+const publications = [
+  // --- 2026 ---
+  {
+    year: '2026',
+    title: 'MetaGLIMPSE: Meta-imputation of low-coverage sequencing data for modern and ancient genomes',
+    authors: 'Kumar KH, Rubinacci S, Zӧllner S',
+    journal: 'Am. J. Hum. Genet. 113, 472–482',
+    doi: 'https://doi.org/10.1016/j.ajhg.2026.02.004',
+    tags: ['MetaGLIMPSE', 'lcWGS', 'imputation', 'ancient genomes'],
+  },
+  {
+    year: '2026',
+    title: 'Insights into DNA repeat expansions among 900,000 biobank participants',
+    authors: 'Hujoel MLA, Handsaker RE, Tang D, Kamitaki N, Mukamel RE, Rubinacci S, Palamara PF, McCarroll SA, Loh P-R',
+    journal: 'Nature 650, 920–929',
+    doi: 'https://doi.org/10.1038/s41586-025-09886-z',
+    tags: ['repeat expansions', 'biobank', 'Nature'],
+  },
+  {
+    year: '2026',
+    title: 'Pharmacogenomic architecture of antihypertensive switching implicates neurotensin-NTSR1 signaling in ACE inhibitor-induced cough',
+    authors: 'Vaura F, Krebs K, Kiiskinen T, Rämö J, Tamlander M, FinnGen, Estonian Biobank research team, Rubinacci S, Milani L, Ripatti S',
+    journal: 'medRxiv 2026.01.26.26344813',
+    doi: 'https://doi.org/10.64898/2026.01.26.26344813',
+    tags: ['pharmacogenomics', 'FinnGen', 'Estonian Biobank', 'medRxiv'],
+  },
+
+  // --- 2025 ---
+  {
+    year: '2025',
+    title: 'Parent-of-origin effects on complex traits in up to 236,781 individuals',
+    authors: 'Hofmeister RJ, Cavinato T, Karimi R, van der Graaf A, Pajuste F-D, Kronberg J, Taba N, Estonian Biobank research team, Mägi R, Vaudel M, Rubinacci S, Johansson S, Milani L, Delaneau O, Kutalik Z',
+    journal: 'Nature 646, 647–656',
+    doi: 'https://doi.org/10.1038/s41586-025-09357-5',
+    tags: ['parent-of-origin', 'complex traits', 'Estonian Biobank'],
+  },
+  {
+    year: '2025',
+    title: 'Patterns and drivers of 43,617 mosaic chromosomal alterations in blood',
+    authors: 'Tang D, Kamitaki N, Mukamel RE, Rubinacci S, Loh P-R',
+    journal: 'medRxiv 2025.07.30.25332451',
+    doi: 'https://doi.org/10.1101/2025.07.30.25332451',
+    tags: ['mosaic chromosomal alterations', 'blood traits', 'medRxiv'],
+  },
+  {
+    year: '2025',
+    title: 'Noncoding rare variant associations with blood traits in 166,740 UK Biobank genomes',
+    authors: 'Ribeiro DM, Hofmeister R, Rubinacci S, Delaneau O',
+    journal: 'Nat. Genet. 57, 2146–2155',
+    doi: 'https://doi.org/10.1038/s41588-025-02288-x',
+    tags: ['UK Biobank', 'rare variants', 'blood traits'],
+  },
+
+  // --- 2024 ---
+  {
+    year: '2024',
+    title: 'A Genomics England haplotype reference panel and imputation of UK Biobank',
+    authors: 'Shi S, Rubinacci S, Hu S, Moutsianas L, Stuckey A, Need AC, Palamara PF, Caulfield M, Marchini J, Myers S',
+    journal: 'Nat. Genet. 56, 1800–1803',
+    doi: 'https://doi.org/10.1038/s41588-024-01868-7',
+    tags: ['Genomics England', 'UK Biobank', 'imputation'],
+  },
+
+  // --- 2023 ---
+  {
+    year: '2023',
+    title: 'Imputation of low-coverage sequencing data from 150,119 UK Biobank genomes',
+    authors: 'Rubinacci S, Hofmeister RJ, Sousa da Mota B, Delaneau O',
+    journal: 'Nature Genetics',
+    doi: 'https://doi.org/10.1038/s41588-023-01438-3',
+    tags: ['GLIMPSE2', 'UK Biobank', 'lcWGS'],
+  },
+  {
+    year: '2023',
+    title: 'Accurate rare variant phasing of whole-genome and whole-exome sequencing data in the UK Biobank',
+    authors: 'Hofmeister RJ, Ribeiro DM, Rubinacci S, Delaneau O',
+    journal: 'Nature Genetics',
+    doi: 'https://doi.org/10.1038/s41588-023-01415-w',
+    tags: ['SHAPEIT5', 'UK Biobank', 'rare variants'],
+  },
+  {
+    year: '2023',
+    title: 'Imputation of ancient human genomes',
+    authors: 'Sousa da Mota B, Rubinacci S, Cruz Dávalos DI, G Amorim CE, Sikora M, Johannsen NN, Szmyt MH, Włodarczak P, Szczepanek A, Przybyła MM, Schroeder H, Allentoft ME, Willerslev E, Malaspinas A-S, Delaneau O',
+    journal: 'Nat. Commun. 14, 3660',
+    doi: 'https://doi.org/10.1038/s41467-023-39202-0',
+    tags: ['ancient DNA', 'imputation', 'Nat Commun'],
+  },
+
+  // --- 2021 ---
+  {
+    year: '2021',
+    title: 'Efficient phasing and imputation of low-coverage sequencing data using large reference panels',
+    authors: 'Rubinacci S, Ribeiro DM, Hofmeister RJ, Delaneau O',
+    journal: 'Nature Genetics 53, 120–126',
+    doi: 'https://doi.org/10.1038/s41588-020-00756-0',
+    tags: ['GLIMPSE', 'lcWGS', 'imputation'],
+  },
+
+  // --- 2020 ---
+  {
+    year: '2020',
+    title: 'Genotype imputation using the Positional Burrows Wheeler Transform',
+    authors: 'Rubinacci S, Delaneau O, Marchini J',
+    journal: 'PLOS Genetics 16(11): e1009049',
+    doi: 'https://doi.org/10.1371/journal.pgen.1009049',
+    tags: ['IMPUTE5', 'PBWT', 'imputation'],
+  },
+  {
+    year: '2020',
+    title: 'The molecular basis, genetic control and pleiotropic effects of local gene co-expression',
+    authors: 'Ribeiro D, Rubinacci S, Ramisch A, Hofmeister R, Dermitzakis E, Delaneau O',
+    journal: 'Nat. Commun. 12, 4842',
+    doi: 'https://doi.org/10.1038/s41467-021-25129-x',
+    tags: ['gene expression', 'co-expression', 'pleiotropy'],
+  },
+];
+---
+<Page title="Publications" description="Publications from the Computational and Statistical Genomics lab">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+
+    <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">Papers & preprints</p>
+    <h1 class="font-serif text-4xl text-stone-900 font-normal mb-4">Selected publications</h1>
+    <div class="w-10 h-0.5 bg-gradient-to-r from-blue-600 to-teal-500 mb-6"></div>
+    <div class="flex gap-4 mb-14">
+      <a href="https://orcid.org/0000-0002-7725-4813" target="_blank" rel="noopener"
+        class="inline-flex items-center gap-1.5 font-mono text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:border-stone-400 no-underline transition-colors">
+        ORCID ↗
+      </a>
+      <a href="https://scholar.google.com/citations?user=RubinacciS" target="_blank" rel="noopener"
+        class="inline-flex items-center gap-1.5 font-mono text-xs border border-stone-200 text-stone-600 px-3 py-1.5 rounded hover:border-stone-400 no-underline transition-colors">
+        Google Scholar ↗
+      </a>
+    </div>
+
+    <div class="space-y-0 divide-y divide-stone-100">
+      {publications.map(p => (
+        <div class="py-7 grid grid-cols-[56px_1fr] gap-6 group">
+          <div class="font-mono text-xs text-stone-400 pt-0.5">{p.year}</div>
+          <div>
+            <h3 class="font-sans font-medium text-stone-900 leading-snug mb-1.5 group-hover:text-blue-700 transition-colors">
+              <a href={p.doi} target="_blank" rel="noopener" class="no-underline hover:underline">{p.title}</a>
+            </h3>
+            <p class="text-sm text-stone-500 mb-1">{p.authors}</p>
+            <p class="text-sm text-teal-600 italic mb-2">{p.journal}</p>
+            <div class="flex flex-wrap items-center gap-2">
+              {p.tags.map(tag => (
+                <span class="font-mono text-[0.6rem] px-1.5 py-0.5 bg-stone-100 text-stone-400 rounded">{tag}</span>
+              ))}
+              <a href={p.doi} target="_blank" rel="noopener"
+                class="font-mono text-[0.62rem] text-blue-700 hover:underline no-underline ml-1">
+                {p.doi.replace('https://doi.org/', 'doi:')} ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-10 text-sm text-stone-400">
+      Full publication list available on <a href="https://orcid.org/0000-0002-7725-4813" target="_blank" class="text-blue-700 hover:underline no-underline">ORCID</a>.
+    </p>
+  </div>
+</Page>

@@ -1,0 +1,221 @@
+---
+import Page from '../layouts/Page.astro';
+
+const members = [
+  {
+    name: 'Simone Rubinacci – PI',
+    role: 'FIMM-EMBL Group Leader',
+    photo: '/images/lab/simone.jpg',
+    initials: 'SR',
+    links: [
+      { label: 'ORCID', href: 'https://orcid.org/0000-0002-7725-4813' },
+      { label: 'GitHub', href: 'https://github.com/compstatgenlab' },
+    ],
+    bio: [
+      "Simone is a Group Leader at FIMM and a Research Fellow at Brigham and Women's Hospital and Harvard Medical School. He earned his DPhil from the Department of Statistics at the University of Oxford.",
+      "His research leverages large-scale genomic datasets to uncover genetic relationships within individuals and across populations — focusing on shared chromosomal segments (haplotypes) and how genetic variation shapes diversity and disease. A core aspect of his work involves developing statistical methods to extract meaningful insights from noisy genomic data, including low-coverage whole-genome sequencing and SNP arrays.",
+      "His current primary focus is on characterising structural variation in human genomes and investigating its implications for health — bridging fundamental genetic insights with translational applications across population structure and disease genetics.",
+    ],
+  },
+  {
+    name: 'Maarja Jõeloo – Postdoctoral researcher',
+    role: 'Postdoctoral researcher',
+    photo: null,
+    initials: 'MJ',
+    links: [
+      { label: 'ORCID', href: 'https://orcid.org/0000-0002-4619-3229' },
+      { label: 'GitHub', href: 'https://github.com/maarjl' },
+    ],
+    bio: [
+      "Maarja defended her PhD in Bioinformatics at the University of Tartu, Estonia, where her thesis focused on the quality assessment and phenotypic associations of microarray-derived copy number variations in the Estonian Biobank cohort. She subsequently explored the highly polymorphic allelic landscape and structural rearrangements of the pharmacogene CYP2D6.",
+      "As a postdoctoral researcher in the lab, Maarja's research centres on dissecting the contribution of structural variations and tandem repeats to human trait variability and disease risk. By leveraging large-scale biobank datasets alongside haplotype-informed variant discovery and imputation methods, she aims to advance understanding of the genetic architecture underlying complex phenotypes.",
+      "In her spare time, she loves spending time outdoors on hiking trails or at home building LEGO creations with her children.",
+    ],
+  },
+  {
+    name: 'Francesca Rosamilia – Postdoctoral Researcher',
+    role: 'Postdoctoral researcher',
+    photo: null,
+    initials: 'FR',
+    links: [],
+    bio: [
+      "Dr. Francesca Rosamilia is a biologist with a PhD in Biostatistics from the University of Genoa (2024), specialising in human genomics and biostatistics applied to complex diseases such as Hirschsprung's disease.",
+      "Her doctoral project integrated whole-exome sequencing (WES), genome-wide association studies (GWAS), and proteomic data from patients with HSCR to identify genetic and molecular signatures associated with clinical variability and disease risk, studying the interaction between rare and common variants.",
+      "Francesca refined her skills in high-dimensional data analysis and biobanks during time as a Visiting PhD student at Columbia University Medical Center in New York.",
+    ],
+  },
+  {
+    name: 'Théo Schneider – Doctoral researcher',
+    role: 'Doctoral researcher',
+    photo: '/images/lab/theo.jpg',
+    initials: 'TS',
+    links: [
+      { label: 'ORCID', href: 'https://orcid.org/0009-0006-9482-0828' },
+      { label: 'GitHub', href: 'https://github.com/theoschneider' },
+    ],
+    bio: [
+      "Théo has a background in biology and bioinformatics, with a strong interest in human genetics, evolution, and the molecular basis of complex traits. He uses computational methods to study inheritance patterns and trait regulation in large-scale biobank datasets.",
+      "Outside the lab, he enjoys bouldering, hiking, and music.",
+    ],
+  },
+  {
+    name: 'Marinella Laaksonen – Research assistant',
+    role: 'Research assistant',
+    photo: null,
+    initials: 'ML',
+    links: [
+      { label: 'ORCID', href: 'https://orcid.org/0009-0001-6709-9661' },
+      { label: 'GitHub', href: 'https://github.com/marinellalaaksonen' },
+    ],
+    bio: [
+      "Marinella is studying in the Life Science Informatics master's programme at the University of Helsinki, with a bachelor's degree in computer science. She is interested in using and developing computational methods to better understand the genomics of complex diseases and traits.",
+      "In the lab she is developing a method for pharmacogenomics — specifically genotyping CYP2D6 — and using it to analyse drug purchase trajectories in large biobank cohorts.",
+    ],
+  },
+  {
+    name: 'Alisa Willman – Reasearch assistant',
+    role: 'Research assistant',
+    photo: null,
+    initials: 'AW',
+    links: [
+      { label: 'ORCID', href: 'https://orcid.org/0009-0003-8337-9094' },
+      { label: 'GitHub', href: 'https://github.com/alisawillman' },
+    ],
+    bio: [
+      "Alisa is finishing her master's studies in the Genetics and Molecular Biosciences programme at the University of Helsinki, with a bachelor's degree in molecular biosciences. She is particularly interested in human genetics, bioinformatics, and women's health research.",
+      "In the group she is working on her master's thesis in collaboration with the FIMM Sequencing Unit — developing pipelines for genotyping using low-coverage whole-genome sequencing (lcWGS), focusing on applications to polygenic risk scores and rare-variant burden estimation.",
+      "In her free time she enjoys cooking, reading, and dancing.",
+    ],
+  }
+];
+
+const alumni = [
+  {
+    name: 'Sara Štebe',
+    role: 'FIMM–EMBL Doctoral Researcher',
+    period: '(Dec 2025 – Feb 2026)',
+    note: 'Whole-genome copy number analysis in 45,000 UK Biobank participants'
+  },
+];
+
+const roleOrder = ['FIMM-EMBL Group Leader', 'Postdoctoral researcher', 'Doctoral researcher', 'Research assistant', 'FIMM-EMBL doctoral researcher'];
+const sorted = [...members].sort((a, b) => roleOrder.indexOf(a.role) - roleOrder.indexOf(b.role));
+---
+
+<Page title="Team" description="Group members of the Computational and Statistical Genomics lab">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+
+    <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">People</p>
+    <h1 class="font-serif text-4xl text-stone-900 font-normal mb-4">Team</h1>
+    <div class="w-10 h-0.5 bg-gradient-to-r from-blue-600 to-teal-500 mb-8"></div>
+
+    <p class="text-stone-500 text-lg leading-relaxed max-w-5xl mb-14">
+      The Computational and Statistical Genomics group is based at FIMM–EMBL and works at the interface of computational genomics, population genetics, and large-scale human datasets. We bring together researchers with diverse backgrounds — united by a shared passion for methods, ambitious science, and the ongoing challenge of mastering Finnish winter.
+    </p>
+
+    <!-- Group photo -->
+    <div class="mb-20">
+      <img
+        src="/images/lab/group-photo2.jpg"
+        alt="The CompStatGen group"
+        class="w-full rounded-2xl shadow-md border border-stone-100 object-cover object-top"
+        style="max-height: 460px;"
+      />
+      <p class="font-mono text-[0.62rem] text-stone-400 mt-3 text-center tracking-widest uppercase">
+        The Computational and Statistical Genomics group at our first lab retreat · Kirkkonummi, Finland · March 2026
+      </p>
+    </div>
+
+    <!-- Member list -->
+    <div class="space-y-0">
+      {sorted.map((m, i) => (
+        <div class={`py-14 ${i > 0 ? 'border-t border-stone-100' : ''}`}>
+          <div class="grid md:grid-cols-[220px_1fr] gap-10 lg:gap-16 items-start">
+
+            <!-- Photo + meta -->
+            <div class="flex flex-col items-center md:items-start gap-4">
+              {m.photo ? (
+                <img
+                  src={m.photo}
+                  alt={m.name}
+                  class="w-44 h-44 rounded-2xl object-cover border border-stone-100 shadow-sm"
+                />
+              ) : (
+                <div class="w-44 h-44 rounded-2xl bg-gradient-to-br from-stone-100 to-blue-50 flex items-center justify-center border border-stone-100 shadow-sm">
+                  <span class="font-serif text-4xl text-stone-300">{m.initials}</span>
+                </div>
+              )}
+              <span class="font-mono text-[0.62rem] tracking-widest uppercase text-teal-600 text-center md:text-left">{m.role}</span>
+              {m.links.length > 0 && (
+                <div class="flex gap-4">
+                  {m.links.map(l => (
+                    <a href={l.href} target="_blank" rel="noopener"
+                      class="font-mono text-[0.65rem] text-stone-400 hover:text-blue-700 no-underline transition-colors border-b border-dashed border-stone-300 hover:border-blue-400 pb-0.5">
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Bio -->
+            <div>
+              <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-normal mb-5">{m.name}</h2>
+              <div class="space-y-3">
+                {m.bio.map(para => (
+                  <p class="text-stone-500 leading-relaxed">{para}</p>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+    <!-- Alumni -->
+    {alumni.length > 0 && (
+      <div class="mt-4 border-t border-stone-100 pt-14 mb-14">
+        <h2 class="font-serif text-2xl text-stone-900 font-normal mb-8">Alumni</h2>
+        <div class="space-y-0 divide-y divide-stone-100">
+          {alumni.map(a => (
+            <div class="py-4 grid grid-cols-[1fr_auto] gap-6 items-baseline">
+              <div class="flex flex-col">
+                <div>
+                  <span class="font-sans font-medium text-stone-700 text-sm">{a.name}</span>
+                  <span class="font-sans font-medium text-stone-700 text-sm ml-2">{a.period}</span>
+                </div>
+                <div class="mt-1">
+                  <span class="font-mono text-[0.62rem] text-teal-600 uppercase tracking-wider">
+                    {a.role}
+                  </span>
+                  {a.project && (
+                    <span class="font-mono text-[0.62rem] text-stone-600 ml-3">
+                      {a.project}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <span class="font-sans text-medium text-stone-600">{a.note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Open positions -->
+    <div class="mt-4 border-t border-stone-100 pt-16">
+      <h2 class="font-serif text-2xl text-stone-900 font-normal mb-4">Join the Lab</h2>
+      <p class="text-stone-500 leading-relaxed mb-3 max-w-5xl">
+        We are actively recruiting <strong class="font-medium text-stone-700">postdoctoral researchers</strong> and <strong class="font-medium text-stone-700">PhD students</strong> with backgrounds in statistical genetics, computational biology, bioinformatics, or applied mathematics.
+      </p>
+      <p class="text-stone-500 leading-relaxed mb-8 max-w-5xl">
+        Helsinki offers a vibrant, internationally connected research environment, excellent quality of life, and access to world-class population cohorts including FinnGen and UK Biobank. FIMM is part of the EMBL partnership, opening doors to a wider European network.
+      </p>
+      <a href="/contact"
+        class="inline-flex items-center gap-2 bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-md hover:bg-blue-600 transition-colors no-underline">
+        Get in touch →
+      </a>
+    </div>
+
+  </div>
+</Page>

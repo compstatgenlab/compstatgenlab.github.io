@@ -1,0 +1,70 @@
+---
+import Page from './Page.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  author?: string;
+  tags?: string[];
+  heroImage?: string;
+}
+const { title, description, date, author = 'Simone Rubinacci', tags = [], heroImage } = Astro.props;
+
+const formatted = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Page title={title} description={description}>
+  <article class="max-w-2xl mx-auto px-6 py-16">
+
+    <!-- Breadcrumb -->
+    <div class="font-mono text-xs text-stone-400 mb-8">
+      <a href="/articles" class="hover:text-blue-700 no-underline transition-colors">Articles</a>
+      <span class="mx-2">·</span>
+      <span>{formatted}</span>
+    </div>
+
+    <!-- Header -->
+    <header class="mb-10">
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-4">
+          {tags.map(tag => (
+            <span class="font-mono text-[0.65rem] tracking-widest uppercase px-2 py-0.5 bg-blue-50 text-blue-700 rounded border border-blue-100">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      <h1 class="font-serif text-3xl md:text-4xl text-stone-900 font-normal leading-snug mb-4">{title}</h1>
+      {description && <p class="text-stone-500 text-lg leading-relaxed">{description}</p>}
+      <div class="mt-5 pt-5 border-t border-stone-100 flex items-center gap-3">
+        <img src="/images/lab/spiral-logo.jpg" alt={author} class="w-8 h-8 rounded-full object-cover border border-stone-200" />
+        <span class="text-sm text-stone-500">{author} · {formatted}</span>
+      </div>
+    </header>
+
+    {heroImage && (
+      <img
+        src={heroImage}
+        alt={title}
+        class="w-full rounded-xl mb-10 object-cover max-h-80 border border-stone-100"
+      />
+    )}
+
+    <!-- Content -->
+    <div class="prose prose-stone prose-lg max-w-none
+      prose-headings:font-serif prose-headings:font-normal
+      prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline
+      prose-code:font-mono prose-code:text-sm
+      prose-blockquote:border-blue-200 prose-blockquote:text-stone-500">
+      <slot />
+    </div>
+
+    <!-- Back -->
+    <div class="mt-16 pt-8 border-t border-stone-100">
+      <a href="/articles" class="font-mono text-xs text-stone-400 hover:text-blue-700 no-underline transition-colors">
+        ← All articles
+      </a>
+    </div>
+
+  </article>
+</Page>

@@ -1,0 +1,104 @@
+---
+import Page from '../layouts/Page.astro';
+
+const tools = [
+  {
+    name: 'GLIMPSE2',
+    badge: 'lcWGS · Imputation',
+    badgeClass: 'bg-teal-50 text-teal-700 border-teal-100',
+    accentClass: 'from-teal-500 to-blue-500',
+    tagline: 'Biobank-scale low-coverage whole-genome sequencing imputation',
+    desc: `GLIMPSE2 is a state-of-the-art software in low-coverage WGS imputation. It scales sublinearly to reference panels containing millions of haplotypes and with millions of rare variants. Achieves highly accurate genotype calls even at rare variants (MAF < 0.1%) and ultra-low sequencing coverages (0.1× to 0.5×).
+
+Applied to impute the UK Biobank's 150,119-genome WGS release, using a reference panel of 280,238 haplotypes and over 580 million markers. Compute cost: under $0.1 per genome. Also handles ancient DNA genotyping from degraded low-coverage samples.`,
+    pub: 'Rubinacci et al., Nature Genetics 2023',
+    doi: 'https://doi.org/10.1038/s41588-023-01438-3',
+    docs: 'https://odelaneau.github.io/GLIMPSE/',
+    github: 'https://github.com/odelaneau/GLIMPSE',
+    tags: ['lcWGS', 'Imputation', 'UK Biobank', 'Rare variants', 'Ancient DNA'],
+  },
+  {
+    name: 'SHAPEIT5',
+    badge: 'WGS · Phasing',
+    badgeClass: 'bg-blue-50 text-blue-700 border-blue-100',
+    accentClass: 'from-blue-500 to-indigo-500',
+    tagline: 'Accurate rare variant phasing of large whole-genome sequencing cohorts',
+    desc: `SHAPEIT5 is a haplotype phasing method for large WGS datasets. Applied to the complete UK Biobank WGS and WES data, it phases rare variants with switch error rates below 5% even for variants found in a single individual among 100,000 — achiving non-random phasing of singletons without family information. The phased UK Biobank reference panel built with SHAPEIT5 also improved downstream imputation accuracy.`,
+    pub: 'Hofmeister, Ribeiro, Rubinacci, Delaneau, Nature Genetics 2023',
+    doi: 'https://doi.org/10.1038/s41588-023-01415-w',
+    docs: 'https://odelaneau.github.io/shapeit5/',
+    github: 'https://github.com/odelaneau/shapeit5',
+    tags: ['Phasing', 'WGS / WES', 'Rare variants', 'Singletons', 'Compound het'],
+  },
+  {
+    name: 'IMPUTE5',
+    badge: 'SNP Array · Imputation',
+    badgeClass: 'bg-amber-50 text-amber-700 border-amber-100',
+    accentClass: 'from-amber-400 to-orange-400',
+    tagline: 'Fast SNP array genotype imputation at biobank scale using PBWT',
+    desc: `IMPUTE5 is a genotype imputation method built for reference panels with millions of samples. Using the Positional Burrows-Wheeler Transform (PBWT), it identifies optimal subsets of reference haplotypes per individual. Computational cost increases only marginally as reference panel size grows.`,
+    pub: 'Rubinacci, Delaneau, Marchini, PLOS Genetics 2020',
+    doi: 'https://doi.org/10.1371/journal.pgen.1009049',
+    docs: 'https://jmarchini.org/software/',
+    github: null,
+    tags: ['SNP Array', 'Imputation', 'PBWT', 'High performance', 'Large panels'],
+  },
+];
+---
+<Page title="Software" description="Genomics tools from the CompStatGen lab: GLIMPSE2, SHAPEIT5, IMPUTE5">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+
+    <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">Open source</p>
+    <h1 class="font-serif text-4xl text-stone-900 font-normal mb-4">Software & Tools</h1>
+    <div class="w-10 h-0.5 bg-gradient-to-r from-blue-600 to-teal-500 mb-6"></div>
+    <p class="text-stone-500 text-lg leading-relaxed max-w-5xl mb-16">
+      We develop and maintain open-source tools for large-scale genomic analysis. All software is freely available and actively maintained.
+    </p>
+
+    <div class="space-y-12">
+      {tools.map(t => (
+        <div class="border border-stone-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+          <div class={`h-1 bg-gradient-to-r ${t.accentClass}`}></div>
+          <div class="p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
+              <div>
+                <span class={`font-mono text-[0.62rem] tracking-widest uppercase px-2 py-0.5 rounded border ${t.badgeClass} inline-block mb-2`}>{t.badge}</span>
+                <h2 class="font-serif text-3xl text-stone-900 font-normal">{t.name}</h2>
+                <p class="text-stone-400 italic text-sm mt-1">{t.tagline}</p>
+              </div>
+              <div class="flex gap-2 flex-wrap">
+                <a href={t.docs} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-medium bg-stone-900 text-white px-4 py-2 rounded-md hover:bg-stone-700 transition-colors no-underline">
+                  Docs ↗
+                </a>
+                {t.github && (
+                  <a href={t.github} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-medium border border-stone-200 text-stone-600 px-4 py-2 rounded-md hover:border-stone-400 transition-colors no-underline">
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div class="prose prose-stone prose-sm max-w-none mb-5">
+              {t.desc.split('\n\n').map(para => (
+                <p class="text-stone-500 leading-relaxed">{para}</p>
+              ))}
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              {t.tags.map(tag => (
+                <span class="font-mono text-[0.62rem] px-2 py-0.5 bg-stone-50 text-stone-500 rounded border border-stone-100">{tag}</span>
+              ))}
+            </div>
+
+            <div class="pt-4 border-t border-stone-100">
+              <span class="text-medium text-stone-500">{t.pub} · </span>
+              <a href={t.doi} target="_blank" rel="noopener" class="text-xs text-blue-700 hover:underline no-underline font-mono">
+                {t.doi.replace('https://doi.org/', 'doi:')}
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Page>

@@ -1,0 +1,55 @@
+---
+import Page from '../../layouts/Page.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('articles'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Page title="Articles" description="Deep dives into our papers and methods">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+
+    <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">From the lab</p>
+    <h1 class="font-serif text-4xl text-stone-900 font-normal mb-4">Articles</h1>
+    <div class="w-10 h-0.5 bg-gradient-to-r from-blue-600 to-teal-500 mb-4"></div>
+    <p class="text-stone-500 leading-relaxed mb-14 max-w-5xl">
+      Here we try to go beyond the abstract, giving our insights into the intuitions, methods, and implications behind our papers, mostly for a non-specialist audience.
+    </p>
+
+    {posts.length === 0 && (
+      <p class="text-stone-400 text-sm">Articles coming soon.</p>
+    )}
+
+    <div class="space-y-0 divide-y divide-stone-100">
+      {posts.map(post => (
+        <a href={`/articles/${post.slug}`}
+          class="group flex gap-6 py-8 no-underline hover:no-underline block">
+          <div class="hidden sm:block w-16 shrink-0 text-right">
+            <span class="font-mono text-[0.62rem] text-stone-400 uppercase tracking-wider">
+              {post.data.date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}
+            </span>
+          </div>
+          <div class="flex-1">
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="flex gap-2 mb-2">
+                {post.data.tags.slice(0,3).map(tag => (
+                  <span class="font-mono text-[0.6rem] tracking-widest uppercase px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            <h2 class="font-serif text-xl text-stone-900 font-normal leading-snug group-hover:text-blue-700 transition-colors mb-2">
+              {post.data.title}
+            </h2>
+            <p class="text-stone-500 text-sm leading-relaxed">{post.data.description}</p>
+          </div>
+          <div class="hidden md:block shrink-0 pt-1">
+            <span class="font-mono text-xs text-stone-300 group-hover:text-blue-400 transition-colors">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</Page>

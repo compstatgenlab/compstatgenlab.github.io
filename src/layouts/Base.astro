@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+const { title, description = "Computational and Statistical Genomics Lab – FIMM, University of Helsinki", image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href={canonicalURL} />
+  <title>{title} | CompStatGen Lab</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={`${title} | CompStatGen Lab`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  {image && <meta property="og:image" content={image} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Martian+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="/images/lab/spiral-logo.jpg" />
+</head>
+<body class="bg-white text-stone-700 font-sans antialiased">
+  <slot />
+</body>
+</html>

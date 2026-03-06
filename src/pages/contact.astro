@@ -1,0 +1,112 @@
+---
+import Page from '../layouts/Page.astro';
+---
+<Page title="Contact" description="Contact the Computational and Statistical Genomics lab">
+  <div class="max-w-5xl mx-auto px-6 py-16">
+
+    <!-- Header -->
+    <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">Get in touch</p>
+    <h1 class="font-serif text-4xl text-stone-900 font-normal mb-4">Contact</h1>
+    <div class="w-10 h-0.5 bg-gradient-to-r from-blue-600 to-teal-500 mb-8"></div>
+    <p class="text-stone-500 text-lg leading-relaxed mb-16">
+      The lab is based at FIMM–EMBL in Helsinki. We welcome enquiries about collaborations, open positions, and our software tools.
+    </p>
+
+    <!-- FIMM photo -->
+    <div class="mb-16">
+      <img
+        src="/images/lab/fimm.jpg"
+        alt="FIMM building, Meilahti Campus, Helsinki"
+        class="w-full rounded-2xl shadow-md border border-stone-100 object-cover"
+        style="max-height: 380px;"
+      />
+      <p class="font-mono text-[0.62rem] text-stone-400 mt-3 text-center tracking-widest uppercase">
+        Institute for Molecular Medicine Finland (FIMM) · Meilahti Campus · Helsinki
+      </p>
+    </div>
+
+    <!-- Contact info + map side by side -->
+    <div class="grid md:grid-cols-2 gap-10 mb-16">
+
+      <!-- Left: who / address / links -->
+      <div>
+        <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-5">Main contact</p>
+        <h2 class="font-serif text-2xl text-stone-900 font-normal mb-4">Simone Rubinacci</h2>
+        <div class="space-y-0.5 text-stone-500 text-sm leading-relaxed mb-7">
+          <p class="font-medium text-stone-700">FIMM-EMBL Group Leader</p>
+          <p>Institute for Molecular Medicine Finland (FIMM)</p>
+          <p>HiLIFE, University of Helsinki</p>
+          <p>Biomedicum Helsinki 2U</p>
+          <p>Tukholmankatu 8, Office D301b</p>
+          <p>00290 Helsinki, Finland</p>
+        </div>
+        <div class="space-y-3 text-sm">
+          <span class="font-mono text-[0.6rem] text-stone-400 w-10 uppercase tracking-wider shrink-0">Phone number</span>
+          +358 050 3185639
+          <a href="mailto:simone.rubinacci@helsinki.fi"
+            class="flex items-center gap-3 text-blue-700 hover:underline no-underline font-medium transition-colors">
+            <span class="font-mono text-[0.6rem] text-stone-400 w-10 uppercase tracking-wider shrink-0">Email</span>
+            simone.rubinacci@helsinki.fi
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: map -->
+      <div>
+        <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-5">Find us</p>
+        <div class="rounded-2xl overflow-hidden border border-stone-100 shadow-sm mb-4" style="height: 260px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.2!2d24.9073!3d60.1899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920bc9a8b76635%3A0x5abf5f51b5e8e1c0!2sTukholmankatu%208%2C%2000290%20Helsinki!5e0!3m2!1sen!2sfi!4v1709999999999!5m2!1sen!2sfi"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="FIMM location map"
+          ></iframe>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="space-y-1 text-sm text-stone-500">
+            <div class="flex gap-3">
+              <span class="font-mono text-[0.6rem] text-stone-400 uppercase tracking-wider w-8 shrink-0 pt-0.5">Tram</span>
+              <span>Lines 3, 4, 7 & 10 — Töölöntulli stop</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="font-mono text-[0.6rem] text-stone-400 uppercase tracking-wider w-8 shrink-0 pt-0.5">Bus</span>
+              <span>Töölöntulli/Meilahden sairaala stop</span>
+            </div>
+          </div>
+          <a href="https://www.google.com/maps/place/Tukholmankatu+8,+00290+Helsinki"
+            target="_blank" rel="noopener"
+            class="font-mono text-xs text-blue-700 border border-blue-200 px-3 py-1.5 rounded hover:bg-blue-50 no-underline transition-colors shrink-0">
+            Open in Maps ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Open positions -->
+    <div class="border-t border-stone-100 pt-14">
+      <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-5">Positions</p>
+      <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-normal mb-5">Open Positions</h2>
+      <div class="space-y-3 mb-8 max-w-5xl">
+        <p class="text-stone-500 leading-relaxed">
+          We are actively recruiting <strong class="font-medium text-stone-700">postdoctoral researchers</strong> and <strong class="font-medium text-stone-700">PhD students</strong> with backgrounds in statistical genetics, computational biology, bioinformatics, or applied mathematics.
+        </p>
+        <p class="text-stone-500 leading-relaxed">
+          Helsinki offers excellent quality of life and access to world-class population cohorts including FinnGen and UK Biobank. FIMM is part of the EMBL partnership, connecting the lab to a wider European research network.
+        </p>
+        <p class="text-stone-500 leading-relaxed">
+          To apply, please send a CV and a short description of your research interests and why you want to join the lab.
+        </p>
+      </div>
+      <a href="mailto:simone.rubinacci@helsinki.fi?subject=Application – CompStatGen Lab"
+        class="inline-flex items-center gap-2 bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-md hover:bg-blue-600 transition-colors no-underline">
+        Apply by email →
+      </a>
+    </div>
+
+  </div>
+</Page>
