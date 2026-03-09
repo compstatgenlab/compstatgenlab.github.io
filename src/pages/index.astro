@@ -33,7 +33,7 @@ const articles = (await getCollection('articles'))
         </h1>
 
         <p class="text-stone-500 text-lg leading-relaxed max-w-md mb-8">
-          We develop efficient statistical and computational methods to decode human genetic variation at scale — applying them to biobanks to understand the genetic basis of disease.
+          We develop efficient statistical and computational methods to decode human genetic variation at scale, applying them to biobanks to understand the genetic basis of disease.
         </p>
 
         <div class="flex flex-wrap gap-3">
@@ -57,7 +57,7 @@ const articles = (await getCollection('articles'))
           class="w-full rounded-2xl shadow-xl object-cover object-top border border-stone-100"
           style="max-height: 480px;"
         />
-        <div class="absolute -bottom-4 -right-4 w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg">
+        <div class="absolute -bottom-4 -right-8 w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg">
           <img src="/images/lab/spiral-logo.jpg" alt="Lab logo" class="w-full h-full object-cover" />
         </div>
         <p class="font-mono text-[0.62rem] text-stone-400 mt-4 text-center tracking-wider uppercase">
@@ -74,11 +74,11 @@ const articles = (await getCollection('articles'))
       <h2 class="font-serif text-3xl text-stone-900 font-normal mb-10">Research</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {[
-          { icon: '🧬', title: 'Structural Variation & Disease', body: 'Large genomic rearrangements — deletions, duplications, inversions — shape disease risk. We integrate multi-omics data to decode their functional consequences at biobank scale.' },
+          { icon: '🧬', title: 'Structural Variation & Disease', body: 'Large genomic rearrangements (deletions, duplications, inversions) shape disease risk. We integrate multi-omics data to decode their functional consequences at biobank scale.' },
           { icon: '🌍', title: 'Population Haplotypes & IBD', body: 'We identify shared haplotype segments across populations to illuminate human history and enable novel disease mapping via identity-by-descent analysis.' },
           { icon: '⚡', title: 'Scalable Algorithms', body: 'We design algorithms that process millions of genomes efficiently. Our tools have shaped multiple UK Biobank releases and are widely adopted globally.' },
           { icon: '🔬', title: 'Low-Coverage Imputation', body: 'lcWGS + imputation is now competitive with SNP arrays. We push accuracy to ultra-rare variants at coverages as low as 0.1× for under $1 per genome.' },
-          { icon: '📊', title: 'Biobank-Scale Phasing', body: 'We phase rare and singleton variants accurately without family data — a longstanding barrier — enabling compound heterozygous disease detection.' },
+          { icon: '📊', title: 'Biobank-Scale Phasing', body: 'We phase rare and singleton variants accurately without family data, enabling compound heterozygous disease detection.' },
           { icon: '🏥', title: 'Multi-Omics Integration', body: 'We integrate genetic variation with transcriptomics, proteomics, and other molecular layers to trace how genomic changes propagate to disease.' },
         ].map(r => (
           <div class="group bg-white rounded-xl border border-stone-100 p-6 hover:border-blue-200 hover:shadow-md transition-all cursor-default relative overflow-hidden">
@@ -115,8 +115,8 @@ const articles = (await getCollection('articles'))
         <div>
           <p class="font-mono text-[0.68rem] tracking-[0.18em] uppercase text-teal-600 mb-3">Our work for the community</p>
           <h2 class="font-serif text-3xl text-stone-900 font-normal mb-5">Shaping the field with widely used, computationally efficient tools</h2>
-          <p class="text-stone-500 leading-relaxed mb-4">We actively contribute through conference talks, workshops, and open-source software — presented at ESHG, ASHG, and other international conferences.</p>
-          <p class="text-stone-500 leading-relaxed">Methods papers should be accompanied by robust, well-documented software usable by anyone — from large biobanks to individual labs with limited compute.</p>
+          <p class="text-stone-500 leading-relaxed mb-4">We actively contribute through conference talks, workshops, and open-source software, presented at ESHG, ASHG, and other international conferences.</p>
+          <p class="text-stone-500 leading-relaxed">Methods papers should be accompanied by robust, well-documented software usable by anyone, from large biobanks to individual labs with limited compute.</p>
         </div>
       </div>
 
